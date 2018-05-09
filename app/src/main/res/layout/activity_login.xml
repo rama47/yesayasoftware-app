@@ -10,20 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <TextView
             style="@style/Base.TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Login" />
+            android:text="@string/login" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email">
+            android:hint="@string/email">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
@@ -40,7 +41,7 @@
             android:id="@+id/til_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             app:passwordToggleEnabled="true">
 
             <android.support.design.widget.TextInputEditText
@@ -63,7 +64,7 @@
             android:layout_gravity="end"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:text="Not Yet Registered" />
+            android:text="@string/not_yet_registered" />
 
         <Button
             android:id="@+id/btn_login"
@@ -71,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Login" />
+            android:text="@string/login" />
 
         <ProgressBar
             android:id="@+id/loader"

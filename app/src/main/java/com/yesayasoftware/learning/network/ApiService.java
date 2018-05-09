@@ -1,9 +1,11 @@
 package com.yesayasoftware.learning.network;
 
 import com.yesayasoftware.learning.entities.AccessToken;
+import com.yesayasoftware.learning.entities.PostResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.FormUrlEncoded;
 
@@ -19,5 +21,12 @@ public interface ApiService {
     @FormUrlEncoded
     Call<AccessToken> login(@Field("email") String email,
                             @Field("password") String password);
+
+    @POST("refresh")
+    @FormUrlEncoded
+    Call<AccessToken> refresh(@Field("refresh_token") String refreshToken);
+
+    @GET("posts")
+    Call<PostResponse> posts();
 
 }

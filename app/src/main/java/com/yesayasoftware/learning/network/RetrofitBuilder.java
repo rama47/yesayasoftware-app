@@ -2,6 +2,7 @@ package com.yesayasoftware.learning.network;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.yesayasoftware.learning.BuildConfig;
+import com.yesayasoftware.learning.TokenManager;
 
 import java.io.IOException;
 
@@ -13,7 +14,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitBuilder {
-
     private static final String BASE_URL = "http://192.168.10.10/api/";
 
     private final static OkHttpClient client = buildClient();
@@ -55,8 +55,30 @@ public class RetrofitBuilder {
         return retrofit.create(service);
     }
 
+    public static <T> T createServiceWithAuth(Class<T> service, final TokenManager tokenManager) {
+        OkHttpClient newClient = client.newBuilder().addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+
+                Request.Builder builder = request.newBuilder();
+
+                if (tokenManager.getToken().getAccessToken() != null) {
+                    builder.addHeader("Authorization", "Bearer " + tokenManager.getToken().getAccessToken());
+                }
+
+                request = builder.build();
+
+                return chain.proceed(request);
+            }
+        }).authenticator(CustomAuthenticator.getInstance(tokenManager)).build();
+
+        Retrofit newRetrofit = retrofit.newBuilder().client(newClient).build();
+
+        return newRetrofit.create(service);
+    }
+
     public static Retrofit getRetrofit() {
         return retrofit;
     }
-
 }

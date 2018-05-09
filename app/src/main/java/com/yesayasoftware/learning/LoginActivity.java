@@ -54,8 +54,6 @@ public class LoginActivity extends AppCompatActivity {
 
         setupRules();
 
-
-
         if (tokenManager.getToken().getAccessToken() != null) {
             startActivity(new Intent(LoginActivity.this, PostActivity.class));
             finish();
