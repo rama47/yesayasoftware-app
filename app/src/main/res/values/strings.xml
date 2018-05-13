@@ -12,4 +12,8 @@
     <string name="password">Password</string>
     <string name="not_yet_registered">Not Yet Registered</string>
 
+    <string name="facebook_app_id">117730905703734</string>
+    <string name="fb_login_protocol_scheme">fb117730905703734</string>
+    <string name="facebook_login_button">Facebook Login Button</string>
+
 </resources>

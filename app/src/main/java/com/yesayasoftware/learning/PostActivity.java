@@ -24,6 +24,9 @@ public class PostActivity extends AppCompatActivity {
     @BindView(R.id.post_title)
     TextView title;
 
+    @BindView(R.id.post_body)
+    TextView body;
+
     ApiService service;
     TokenManager tokenManager;
     Call<PostResponse> call;
@@ -56,6 +59,7 @@ public class PostActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     title.setText(response.body().getData().get(0).getTitle());
+                    body.setText(response.body().getData().get(0).getBody());
                 } else {
                     startActivity(new Intent(PostActivity.this, LoginActivity.class));
                     finish();

@@ -13,18 +13,33 @@ public interface ApiService {
 
     @POST("register")
     @FormUrlEncoded
-    Call<AccessToken> register(@Field("name") String name,
-                               @Field("email") String email,
-                               @Field("password") String password);
+    Call<AccessToken> register(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String password
+    );
 
     @POST("login")
     @FormUrlEncoded
-    Call<AccessToken> login(@Field("email") String email,
-                            @Field("password") String password);
+    Call<AccessToken> login(
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
+    @POST("social_auth")
+    @FormUrlEncoded
+    Call<AccessToken> socialAuth(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("provider") String provider,
+            @Field("provider_user_id") String providerUserId
+    );
 
     @POST("refresh")
     @FormUrlEncoded
-    Call<AccessToken> refresh(@Field("refresh_token") String refreshToken);
+    Call<AccessToken> refresh(
+            @Field("refresh_token") String refreshToken
+    );
 
     @GET("posts")
     Call<PostResponse> posts();

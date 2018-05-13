@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp">
 
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
     <LinearLayout
+        android:id="@+id/form_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
         <TextView
             style="@style/Base.TextAppearance.AppCompat.Headline"
@@ -19,6 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/login" />
+
+        <ImageButton
+            android:id="@+id/btn_facebook"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/facebook_selector"
+            android:contentDescription="@string/facebook_login_button" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_email"
@@ -74,13 +90,6 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/login" />
 
-        <ProgressBar
-            android:id="@+id/loader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:visibility="invisible" />
-
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

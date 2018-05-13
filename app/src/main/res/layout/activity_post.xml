@@ -18,6 +18,15 @@
         android:textSize="20sp"
         tools:text="The Future Generation of IT" />
 
+    <TextView
+        android:id="@+id/post_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:padding="15dp"
+        android:textSize="15sp"
+        tools:text="The Future Generation of IT, and more data to be discussed here" />
+
     <Button
         android:id="@+id/btn_posts"
         android:layout_width="wrap_content"
